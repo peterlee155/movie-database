@@ -44,14 +44,14 @@ export function AuthModal({ isOpen }: AuthModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="bg-white rounded-lg p-6 w-full max-w-md mx-auto shadow-xl">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900">
-        {mode === 'sign-in' ? 'Sign In' : 'Sign Up'}
+    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-8 w-full max-w-md mx-auto shadow-2xl border border-white/20">
+      <h2 className="text-3xl font-bold mb-6 text-gray-900 text-center">
+        {mode === 'sign-in' ? 'Welcome Back' : 'Create Account'}
       </h2>
       
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block text-base font-semibold text-gray-900 mb-2">
             Email
           </label>
           <input
@@ -59,13 +59,14 @@ export function AuthModal({ isOpen }: AuthModalProps) {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            placeholder="Enter your email"
             required
           />
         </div>
         
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="password" className="block text-base font-semibold text-gray-900 mb-2">
             Password
           </label>
           <input
@@ -73,30 +74,33 @@ export function AuthModal({ isOpen }: AuthModalProps) {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            placeholder="Enter your password"
             required
           />
         </div>
 
         {error && (
-          <p className="text-red-500 text-sm">{error}</p>
+          <div className="bg-red-50 border-l-4 border-red-500 p-4">
+            <p className="text-red-700 text-sm font-medium">{error}</p>
+          </div>
         )}
 
-        <div className="flex items-center justify-between">
-          <button
-            type="button"
-            className="text-sm text-blue-600 hover:text-blue-500"
-            onClick={() => setMode(mode === 'sign-in' ? 'sign-up' : 'sign-in')}
-          >
-            {mode === 'sign-in' ? 'Need an account?' : 'Already have an account?'}
-          </button>
-          
+        <div className="flex flex-col gap-4">
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-base hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
           >
-            {loading ? 'Loading...' : mode === 'sign-in' ? 'Sign In' : 'Sign Up'}
+            {loading ? 'Please wait...' : mode === 'sign-in' ? 'Sign In' : 'Sign Up'}
+          </button>
+          
+          <button
+            type="button"
+            className="text-blue-600 hover:text-blue-500 text-sm font-medium"
+            onClick={() => setMode(mode === 'sign-in' ? 'sign-up' : 'sign-in')}
+          >
+            {mode === 'sign-in' ? 'Need an account? Sign up' : 'Already have an account? Sign in'}
           </button>
         </div>
       </form>

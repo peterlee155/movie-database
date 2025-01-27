@@ -2,10 +2,11 @@
 
 A beautiful and modern movie database application built with React, TypeScript, and Supabase. Browse popular movies, search for your favorites, and create your personal watchlist.
 
+![Movie Database Screenshot](https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1200)
 
 ## 🌟 Live Demo
 
-Visit the live application: [Movie Database](https://elegant-alpaca-16fd99.netlify.app/)
+Visit the live application: [Movie Database](https://movie-database-stackblitz.netlify.app)
 
 ## ✨ Features
 
