@@ -6,7 +6,7 @@ A beautiful and modern movie database application built with React, TypeScript, 
 
 ## 🌟 Live Demo
 
-Visit the live application: [Movie Database](https://movie-database-stackblitz.netlify.app)
+Visit the live application: [Movie Database](https://elegant-alpaca-16fd99.netlify.app/)
 
 ## ✨ Features
 
